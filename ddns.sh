@@ -17,8 +17,8 @@ if [[ -n ${DDNS_REPO} ]] && [[ -n ${DDNS_SSH_KEY} ]] ; then
 
     #configuring the committer
     echo "configuring git committer"
-    git config user.name "${DDNS_SSH_USERNAME}"
-    git config user.email "${DDNS_SSH_EMAIL}"
+    git config user.name "${DDNS_GIT_USERNAME}"
+    git config user.email "${DDNS_GIT_EMAIL}"
 
     #start looping, we check against IP, then
     while true
