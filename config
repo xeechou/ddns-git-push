@@ -1,0 +1,11 @@
+Host bitbucket.org
+  StrictHostKeyChecking no
+  IdentityFile /app/ssh-key
+
+Host gitlab.com
+  StrictHostKeyChecking no
+  IdentityFile /app/ssh-key
+
+Host github.com
+  StrictHostKeyChecking no
+  IdentityFile /app/ssh-key
