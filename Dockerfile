@@ -24,4 +24,4 @@ WORKDIR /app
 COPY ddns.sh .
 COPY ssh_give_pass.sh .
 
-ENTRYPOINT ["/bin/bash", "ddns.sh"]
+ENTRYPOINT ["/bin/bash", "/app/ddns.sh"]

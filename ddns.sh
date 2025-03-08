@@ -7,7 +7,7 @@ if [[ -n ${DDNS_REPO} ]] && [[ -n ${DDNS_SSH_KEY} ]] ; then
     chmod 600 ${PWD}/ssh-key
 
     eval $(ssh-agent -s)
-    SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=${PWD}/ssh_give_pass.sh ssh-add ${PWD}/ssh-key <<< ${DDNS_SSH_PASSPHRASE}
+    SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=/app/ssh_give_pass.sh ssh-add ${PWD}/ssh-key <<< ${DDNS_SSH_PASSPHRASE}
 
     #start fresh
     rm -rf ddns_git
