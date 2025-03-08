@@ -1,0 +1,24 @@
+#+title: IP update to a git repository
+#+author: Xichen Zhou
+#+date: [2025-03-08 Sat]
+
+I create this docker image for my own convenience, that I don't want to expose my public IP to PUBLIC DNS servers. However I still need to know my IP address to connect to my home lab.
+
+The workflow is simple, assume you have a server running at your home:
+
+1. grabbing your IP address from https://api.ipify.org?format=json.
+2. Comparing it against your current IP address.
+3. If there is a difference then it will override it and commit the IP address
+4. commit the changes to the git repository ~DDNS_SSH_REPO~ of your choice.
+5. wait for ~DDNS_TIMEOUT~ and *repeat*.
+
+
+** Environment variables
+- ~DDNS_HOST~ :: the server of your *private* git repository, remember to make it private 😏
+- ~DDNS_SSH_REPO~ ::  the private repository.
+- ~DDNS_SSH_KEY~ :: a private key string of your ssh-key.
+- ~DDNS_SSH_PASSPHRASE~ :: password to your ssh-key.
+- ~DDNS_GIT_USERNAME~ :: the committer you want to be, default "DDNS Updater"
+- ~DDNS_GIT_EMAIL~ :: the committer email you want to be, default "ddns.updater@gmail.com"
+- ~DDNS_TIMEOUT~ :: the time to wait for check again, default ~20m~
+   
