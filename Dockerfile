@@ -9,8 +9,8 @@ ENV DDNS_HOST "gitlab.com"
 ENV DDNS_SSH_REPO ""
 ENV DDNS_SSH_KEY ""
 ENV DDNS_SSH_PASSPHRASE ""
-ENV DDNS_SSH_USERNAME "DDNS Updater"
-ENV DDNS_SSH_EMAIL "ddns.updater@gmail.com"
+ENV DDNS_GIT_USERNAME "DDNS Updater"
+ENV DDNS_GIT_EMAIL "ddns.updater@gmail.com"
 ENV DDNS_TIMEOUT "20m"
 
 #run keyscan, otherwise you will not be able to push to repo
