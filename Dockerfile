@@ -21,7 +21,7 @@ RUN chmod 0600 /root/.ssh/config
 
 WORKDIR /app
 
-COPY ddns.sh .
-COPY ssh_give_pass.sh .
+COPY ddns.sh /app/
+COPY ssh_give_pass.sh /app/
 
 ENTRYPOINT ["/bin/bash", "/app/ddns.sh"]

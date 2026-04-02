@@ -22,3 +22,39 @@ The workflow is simple, assume you have a server running at your home:
 - ~DDNS_GIT_EMAIL~ :: the committer email you want to be, default "ddns.updater@gmail.com"
 - ~DDNS_TIMEOUT~ :: the time to wait for check again, default ~20m~
    
+** Development
+*** building the image with ~docker~
+
+#+begin_src shell
+docker build -t xeechou/ddns-git-push:latest
+#+end_src
+
+*** build with docker compose
+#+begin_src yaml
+services:
+  ddns:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yourname/ddns-updater:latest #or your image name.
+    restart: unless-stopped
+    environment:
+      DDNS_REPO: git@github.com:yourname/yourrepo.git
+      DDNS_SSH_PASSPHRASE: your-password
+      DDNS_SSH_KEY: |-
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        your key
+        -----END OPENSSH PRIVATE KEY-----
+#+end_src
+
+Then
+#+begin_src shell
+docker compose f ./compose.yaml build
+#+end_src
+
+You can verify if the images are available with ~docker images~
+** Upload to DockerHub
+#+begin_src shell
+docker login
+docker push yourname:/ddns-updater:latest
+#+end_src

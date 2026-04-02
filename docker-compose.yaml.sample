@@ -1,0 +1,12 @@
+services:
+  ddns:
+    image: xeechou/ddns-git-push:latest
+    restart: unless-stopped
+    environment:
+      DDNS_REPO: git@github.com:your-name/your-repo.git
+      DDNS_SSH_PASSPHRASE: your-pass-phrase
+      DDNS_SSH_KEY: |-
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        your-private-key
+        -----END OPENSSH PRIVATE KEY-----
+networks: {}

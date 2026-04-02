@@ -9,6 +9,10 @@ if [[ -n ${DDNS_REPO} ]] && [[ -n ${DDNS_SSH_KEY} ]] ; then
     eval $(ssh-agent -s)
     SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=/app/ssh_give_pass.sh ssh-add ${PWD}/ssh-key <<< ${DDNS_SSH_PASSPHRASE}
 
+    #debug
+    # echo "current ssh_key:"
+    # cat ${PWD}/ssh-key
+
     #start fresh
     rm -rf ddns_git
     echo "clone repo: ${DDNS_REPO}"
